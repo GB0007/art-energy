@@ -235,7 +235,7 @@
       }
       nav.main {
         display: none;
-        gap: 26px;
+        gap: 20px;
       }
       nav.main a {
         font-size: 14.5px;
@@ -511,6 +511,57 @@
           display: none;
         }
       }
+      .section-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .section-tab {
+        appearance: none;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--muted);
+        cursor: pointer;
+      }
+      .section-tab:hover,
+      .section-tab:focus-visible {
+        color: var(--umber);
+        outline: none;
+      }
+      .section-tab[aria-selected="true"] {
+        background: var(--clay);
+        border-color: var(--clay);
+        color: var(--cream);
+      }
+      .studio-grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 22px;
+      }
+      @media (min-width: 640px) {
+        .studio-grid {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+      }
+      .studio-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: var(--card);
+      }
+      .studio-credit {
+        margin-top: 12px;
+        font-size: 14px;
+        color: var(--muted);
+      }
       ol.precepts {
         list-style: none;
         margin: 22px 0 0 6px;
@@ -678,6 +729,71 @@
         padding: 0 16px;
         margin-left: auto;
       }
+      .reviews-grid {
+        display: grid;
+        gap: 20px;
+        margin-top: 48px;
+      }
+      @media (min-width: 760px) {
+        .reviews-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+        .review.wide {
+          grid-column: span 2;
+        }
+      }
+      .review {
+        background: rgba(251, 247, 239, 0.85);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .review.accent {
+        background: color-mix(in srgb, var(--accent) 60%, transparent);
+      }
+      .review .qmark {
+        font-family: var(--display);
+        font-size: 64px;
+        line-height: 0.7;
+        color: var(--clay);
+        opacity: 0.4;
+      }
+      .review .body {
+        margin-top: 20px;
+        font-size: 17px;
+        line-height: 1.65;
+        color: var(--muted);
+        max-width: 36rem;
+      }
+      .review .aside {
+        font-family: var(--display);
+        font-size: 26px;
+        line-height: 1.25;
+        margin-top: 0;
+      }
+      .review-foot {
+        margin-top: auto;
+        padding-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+      }
+      .review .who {
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .review-foot .btn {
+        height: 40px;
+        padding: 0 16px;
+      }
+
       .sessions-head {
         display: flex;
         flex-wrap: wrap;
@@ -968,6 +1084,38 @@
       .sample-drawer-body p + p {
         margin-top: 14px;
       }
+      .sample-drawer-head .section-tabs {
+        margin-top: 14px;
+        margin-right: 12px;
+      }
+      .sample-drawer-head .section-tab {
+        font-size: 13px;
+        padding: 7px 13px;
+      }
+      .sample-drawer-body video {
+        width: 100%;
+        border-radius: 12px;
+        background: #1a1612;
+      }
+      .sample-videos {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .sample-soon {
+        margin: 1.25rem 0 0;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.65;
+      }
+      .sample-drawer-body h2 {
+        font-family: var(--display);
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 1.15;
+        margin: 0 0 18px;
+      }
       .sample-drawer-foot {
         flex-shrink: 0;
         display: flex;
@@ -1116,8 +1264,38 @@
         margin-bottom: 6px;
       }
       #booking-times,
-      #session-field {
+      #session-field,
+      #booking-terms {
         display: none;
+      }
+      .booking-terms-heading {
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0 0 8px;
+      }
+      .booking-terms-body {
+        font-size: 13px;
+        line-height: 1.5;
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+      .booking-terms-check {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 0;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .booking-terms-check input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        padding: 0;
+        accent-color: var(--clay);
+        box-shadow: none;
+        border: 0;
+        background: none;
       }
       input:focus,
       select:focus,
@@ -1151,10 +1329,7 @@
         display: none;
       }
       .confirm {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 32px 28px;
+        padding: 6px 2px 0;
       }
       .confirm .ref {
         margin-top: 20px;
@@ -1363,7 +1538,11 @@
               <p class="portrait-role">Reiki practitioner and intuitive artist in Pittsburgh</p>
             </div>
             <div>
-              <h2 class="section-title">About me</h2>
+              <div class="section-tabs" id="about-tabs" role="tablist" aria-label="About me">
+                <button type="button" class="section-tab" role="tab" id="about-tab" aria-selected="true" aria-controls="about-panel">About me</button>
+                <button type="button" class="section-tab" role="tab" id="studio-tab" aria-selected="false" aria-controls="studio-panel" tabindex="-1">Studio</button>
+              </div>
+              <div id="about-panel" role="tabpanel" aria-labelledby="about-tab">
               <div class="stack bio-copy" id="bio-copy" style="margin-top: 22px; color: var(--muted)">
                 <p>
                   My journey to get here wasn't easy. It was full of trials,
@@ -1408,6 +1587,14 @@
                 </p>
               </div>
               <button type="button" class="btn btn-outline bio-more" id="bio-more" aria-expanded="false" aria-controls="bio-copy">Show more</button>
+              </div>
+              <div id="studio-panel" role="tabpanel" hidden aria-labelledby="studio-tab">
+                <div class="studio-grid">
+                  <img src="public/Studio/20261016_giovanna_D856472.jpg" alt="The Art and Energy studio in Pittsburgh" width="2500" height="1667" />
+                  <img src="public/Studio/20261016_giovanna_D856481.jpg" alt="Inside the Art and Energy studio" width="1667" height="2500" />
+                </div>
+                <p class="studio-credit">Photo credit Craig Thompson Photography</p>
+              </div>
             </div>
           </div>
 
@@ -1531,7 +1718,7 @@
                 can choose together.
               </p>
             </div>
-            <a class="btn btn-outline" href="?intent=inquiry#contact">Inquire about a session</a>
+            <a class="btn btn-outline" href="sample-reading.html" data-sample-reading>See reading samples</a>
           </div>
           <div class="cards">
             <div class="session accent">
@@ -1581,7 +1768,7 @@
                 </div>
                 <div class="price-row">
                   <span class="label">1 hour</span>
-                  <span class="amt">$125</span>
+                  <span class="amt">$150</span>
                 </div>
               </div>
               <div class="session-foot">
@@ -1602,6 +1789,35 @@
                 <a class="btn btn-outline" href="?session=make-a-painting&intent=booking#contact">Book now</a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section id="reviews" class="pad" hidden>
+        <div class="wrap">
+          <p class="eyebrow">After the hour</p>
+          <h2 class="section-title">Reviews</h2>
+          <p class="muted" style="margin-top: 16px; max-width: 36rem">
+            I work quietly. When someone writes after a session, I keep those words here.
+          </p>
+          <div class="reviews-grid">
+            <article class="review wide">
+              <span class="qmark" aria-hidden>“</span>
+              <p class="body">
+                A session is private. I do not list names or invent stories. If a few words stay with you after the hour, write to me and I will add them here.
+              </p>
+              <div class="review-foot">
+                <a class="btn btn-outline" href="#contact">Write to me</a>
+                <p class="who">From the studio</p>
+              </div>
+            </article>
+            <article class="review accent">
+              <p class="aside">The room stays simple. So does this page, until someone writes.</p>
+              <div class="review-foot">
+                <p class="who">From the studio</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -1695,7 +1911,7 @@
                     <option value="intuitive-energy-readings">Intuitive energy readings · in person or Zoom · 45 min · $60</option>
                     <option value="reiki-and-reading">Reiki + Intuitive energy readings · 1.5 hrs · $150</option>
                     <option value="reiki-30">Reiki · 30 min · $75</option>
-                    <option value="reiki-60">Reiki · 1 hour · $125</option>
+                    <option value="reiki-60">Reiki · 1 hour · $150</option>
                     <option value="make-a-painting">If life throws you lemons, make a painting · 2 hrs · $95</option>
                   </select>
                   <p class="err" data-for="c-session">Please choose a session.</p>
@@ -1716,6 +1932,23 @@
                     <label for="c-time3">Option 3</label>
                     <input id="c-time3" name="time3" placeholder="Next week, after 4pm" />
                   </div>
+                </div>
+                <div class="field" id="booking-terms">
+                  <p class="booking-terms-heading">Booking Terms &amp; Disclaimer</p>
+                  <p class="booking-terms-body">
+                    By booking and paying for a session, you acknowledge that you have read and agree to the terms and conditions of this service.
+                  </p>
+                  <p class="booking-terms-body">
+                    Intuitive readings and Reiki sessions are intended for personal and spiritual guidance, relaxation, and general well being. They are not a substitute for professional medical care, psychological counseling, mental health services, or financial or legal advice. No specific outcomes are guaranteed, and you are responsible for your own decisions and actions.
+                  </p>
+                  <p class="booking-terms-body">
+                    By proceeding with your booking, you acknowledge and accept these limitations.
+                  </p>
+                  <label class="booking-terms-check">
+                    <input type="checkbox" id="c-terms" name="bookingTerms" value="agreed" />
+                    I have read and agree to the booking terms.
+                  </label>
+                  <p class="err" data-for="c-terms">Please confirm the booking terms.</p>
                 </div>
                 <div class="field" id="inquiry-message">
                   <label for="c-message">Message</label>
@@ -1808,11 +2041,17 @@
         tabindex="-1"
       >
         <div class="sample-drawer-head">
-          <p class="eyebrow">Sample energy reading</p>
-          <h2 id="sample-drawer-title">Man of Sadness</h2>
+          <p class="eyebrow" id="sample-drawer-title">Sample energy reading</p>
+          <div class="section-tabs" id="sample-tabs" role="tablist" aria-label="Reading samples">
+            <button type="button" class="section-tab" role="tab" id="sample-tab-1" aria-selected="true" aria-controls="sample-panel-1">Reading Sample 1</button>
+            <button type="button" class="section-tab" role="tab" id="sample-tab-2" aria-selected="false" aria-controls="sample-panel-2" tabindex="-1">Reading Sample 2</button>
+            <button type="button" class="section-tab" role="tab" id="sample-tab-3" aria-selected="false" aria-controls="sample-panel-3" tabindex="-1">Reading Sample 3</button>
+          </div>
           <button type="button" class="sample-drawer-x" data-sample-close aria-label="Close">✕</button>
         </div>
         <div class="sample-drawer-body">
+          <div id="sample-panel-1" role="tabpanel" aria-labelledby="sample-tab-1">
+          <h2>Man of Sadness</h2>
           <img
             src="public/gallery/10energy.jpg"
             alt="Man of Sadness, an energy mapping drawing in a sketchbook"
@@ -1916,6 +2155,18 @@
           <p>
             During a Reiki session I would focus my energy on the lower chakras specifically solar, sacral and root to rebalance the energy related to safety, anger towards self and others, and freedom of expression.
           </p>
+          </div>
+          <div id="sample-panel-2" role="tabpanel" hidden aria-labelledby="sample-tab-2">
+            <div class="sample-videos">
+              <video controls playsinline preload="metadata">
+                <source src="public/Studio/reading1.mov" type="video/mp4" />
+                <source src="public/Studio/reading1.mov" type="video/quicktime" />
+              </video>
+            </div>
+          </div>
+          <div id="sample-panel-3" role="tabpanel" hidden aria-labelledby="sample-tab-3">
+            <p class="sample-soon">Coming soon</p>
+          </div>
         </div>
         <div class="sample-drawer-foot">
           <a class="btn btn-primary" href="?session=intuitive-energy-readings&intent=booking#contact" data-sample-close>Book now</a>
@@ -1967,6 +2218,38 @@
           bioMore.setAttribute("aria-expanded", open ? "true" : "false");
         });
       }
+
+      function bindSectionTabs(tablist) {
+        if (!tablist) return;
+        var tabs = tablist.querySelectorAll('[role="tab"]');
+        var panelIds = [];
+        tabs.forEach(function (tab) {
+          panelIds.push(tab.getAttribute("aria-controls"));
+        });
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var selected = tab.getAttribute("aria-controls");
+            tabs.forEach(function (item) {
+              var on = item === tab;
+              item.setAttribute("aria-selected", on ? "true" : "false");
+              item.tabIndex = on ? 0 : -1;
+            });
+            panelIds.forEach(function (id) {
+              var panel = document.getElementById(id);
+              if (!panel) return;
+              var show = panel.id === selected;
+              panel.hidden = !show;
+              if (!show) {
+                panel.querySelectorAll("video").forEach(function (video) {
+                  video.pause();
+                });
+              }
+            });
+          });
+        });
+      }
+      bindSectionTabs(document.getElementById("about-tabs"));
+      bindSectionTabs(document.getElementById("sample-tabs"));
 
       // Gallery data — files served from public/gallery
       var GALLERY = [
@@ -2154,17 +2437,31 @@
         if (el) el.style.display = on ? "block" : "none";
       }
 
-      function mountPaypalCheckout() {
-        var container = document.getElementById("paypal-container-BLKBZH5FMQMMJ");
+      var PAYPAL_CHECKOUT_BUTTONS = {
+        "intuitive-energy-readings": "BLKBZH5FMQMMJ",
+        "reiki-and-reading": "ZGH5PUH24NK8L",
+        "reiki-30": "VV7NE6RT55B6C",
+        "reiki-60": "AVFHS72QV3P82",
+        "make-a-painting": "P59T4AHV674JA",
+      };
+
+      function paypalContainerId(buttonId) {
+        return "paypal-container-" + buttonId;
+      }
+
+      function mountPaypalCheckout(buttonId) {
+        if (!buttonId) return;
+        var containerId = paypalContainerId(buttonId);
+        var container = document.getElementById(containerId);
         if (!container || container.getAttribute("data-paypal-mounted") === "true") return;
         function tryRender() {
           if (typeof paypal === "undefined" || !paypal.HostedButtons) return false;
-          var el = document.getElementById("paypal-container-BLKBZH5FMQMMJ");
+          var el = document.getElementById(containerId);
           if (!el || el.getAttribute("data-paypal-mounted") === "true") return true;
           el.setAttribute("data-paypal-mounted", "true");
           paypal.HostedButtons({
-            hostedButtonId: "BLKBZH5FMQMMJ",
-          }).render("#paypal-container-BLKBZH5FMQMMJ");
+            hostedButtonId: buttonId,
+          }).render("#" + containerId);
           return true;
         }
         if (tryRender()) return;
@@ -2175,18 +2472,18 @@
         }, 100);
       }
 
-      function showContactSuccess(showCheckout) {
+      function showContactSuccess(buttonId) {
         var html =
           '<div class="confirm">' +
           '<h3 class="sub">Thank you, I will get back to you shortly!</h3>';
-        if (showCheckout) {
+        if (buttonId) {
           html +=
             '<p class="confirm-checkout-copy">Please complete the check out process.</p>' +
-            '<div id="paypal-container-BLKBZH5FMQMMJ" class="paypal-checkout"></div>';
+            '<div id="' + paypalContainerId(buttonId) + '" class="paypal-checkout"></div>';
         }
         html += "</div>";
         document.getElementById("contact-box").innerHTML = html;
-        if (showCheckout) mountPaypalCheckout();
+        if (buttonId) mountPaypalCheckout(buttonId);
       }
 
       function handleContact(e) {
@@ -2200,6 +2497,8 @@
         var time2 = document.getElementById("c-time2").value.trim();
         var time3 = document.getElementById("c-time3").value.trim();
         var message = document.getElementById("c-message").value.trim();
+        var termsEl = document.getElementById("c-terms");
+        var termsAgreed = termsEl ? termsEl.checked : false;
         var ok = true;
         showErr("c-name", !name); if (!name) ok = false;
         showErr("c-email", !isEmail(email)); if (!isEmail(email)) ok = false;
@@ -2207,10 +2506,12 @@
           var sessionMissing = !session;
           showErr("c-session", sessionMissing); if (sessionMissing) ok = false;
           showErr("c-time1", !time1); if (!time1) ok = false;
+          showErr("c-terms", !termsAgreed); if (!termsAgreed) ok = false;
           showErr("c-message", false);
         } else {
           showErr("c-session", false);
           showErr("c-time1", false);
+          showErr("c-terms", false);
           showErr("c-message", message.length < 2); if (message.length < 2) ok = false;
         }
         if (!ok) return;
@@ -2245,6 +2546,7 @@
             time2: intent === "booking" ? time2 : "",
             time3: intent === "booking" ? time3 : "",
             message: message,
+            bookingTerms: intent === "booking" ? "agreed" : "",
           }),
         })
           .then(function (res) {
@@ -2253,8 +2555,8 @@
           .then(function (data) {
             var success = data && (data.success === true || data.success === "true");
             if (!success) throw new Error("send failed");
-            var showCheckout = intent === "booking" && session === "intuitive-energy-readings";
-            showContactSuccess(showCheckout);
+            var checkoutButtonId = intent === "booking" ? PAYPAL_CHECKOUT_BUTTONS[session] : "";
+            showContactSuccess(checkoutButtonId);
           })
           .catch(function () {
             if (sendBtn) {
@@ -2272,6 +2574,7 @@
         document.getElementById("booking-times").style.display = booking ? "block" : "none";
         document.getElementById("inquiry-message").style.display = booking ? "none" : "block";
         document.getElementById("session-field").style.display = booking ? "block" : "none";
+        document.getElementById("booking-terms").style.display = booking ? "block" : "none";
       }
 
       var params = new URLSearchParams(window.location.search);
